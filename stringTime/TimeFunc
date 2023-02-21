@@ -1,0 +1,37 @@
+package main
+
+import (
+	"strings"
+	"time"
+)
+
+//function to add time strings
+
+
+func Add( t... string)[3]int{
+
+	curr:=[3]int{00,00,00}
+
+	for _,v:=range t{
+	val:=strings.Split(v,":")
+
+	//add the elements inside val slice
+	j:=0
+	for j=0;j<len(val);j++{
+
+		curr[j]=curr[j]+val[j]
+
+		if curr[j]==60{
+
+			if j>0{curr[j-1]++}
+
+			curr[j]=00
+
+		}
+	}
+	
+		
+	}
+	return curr
+}
+

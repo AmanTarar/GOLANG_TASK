@@ -1,0 +1,30 @@
+func Sub(t1 string, t2 string) string {
+	if GreaterThan(t1, t2) {
+		t1, t2 = t2, t1
+	}
+	temp1 := strings.Split(t1, ":")
+	temp2 := strings.Split(t2, ":")
+
+	t1hr, _ := strconv.Atoi(temp1[0])
+	t1m, _ := strconv.Atoi(temp1[1])
+	t1s, _ := strconv.Atoi(temp1[2])
+
+	t2hr, _ := strconv.Atoi(temp2[0])
+	t2m, _ := strconv.Atoi(temp2[1])
+	t2s, _ := strconv.Atoi(temp2[2])
+
+	if t1s > t2s {
+		t2m--
+		t2s += 60
+	}
+	secDiff := t2s - t1s
+	if t1m > t2m {
+		t2hr--
+		t2m += 60
+	}
+	minDiff := t2m - t1m
+	hrDiff := t2hr - t1hr
+
+	return formatedOutput(hrDiff, minDiff, secDiff)
+
+}
